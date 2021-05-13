@@ -1,0 +1,75 @@
+<html lang="en">
+
+<head>
+    <title>Context based QnA</title>
+    <script src="qna_processing.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid" style="padding-top:20px; padding-bottom:20px;">
+        <div class="container">
+          <h1 class="display-4">Context based QnA</h1>
+        </div>
+    </div>
+ 
+    <div class="container">
+        <div class="card input-UI" style="padding:10px; margin-bottom:10px">
+            <div class="form-group">
+                <label class="form-label" for="context-input">Context</label>
+                <textarea class="form-control" id="context-input" name ="context-input" rows = "5" placeholder="Enter Context"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="question-input">Question</label>
+                <input type="text" class="form-control" id="question-input" placeholder="Enter question">
+            </div>
+
+            <div style="margin-bottom: 10 px; margin-top:10px">
+                <button class="btn btn-primary get-answer" type="button">
+                <i class="fas fa-search" id="search-icon" style=" padding-right: 5px;"></i>
+                 Answer </button>
+            
+                <span class="spinner-border spinner-border-sm" id="loading-symbol" role="status" style = "margin-left: 20px; visibility:hidden;"></span>
+            
+            </div>
+        </div>
+        <div class="card input-UI" id = "answer-div" style="padding:10px; display:none">
+            <div class="form-group">
+                <label class="form-label" for="context-input">Answer</label>
+                <textarea  id="answer-output" class="form-control"></textarea>
+            </div>
+        </div>
+
+
+        <div class="alert alert-danger" id = "error-div" style="padding:10px; display:none">
+            <strong>Error!</strong> We are facing some difficulties. Please try again.
+          </div>
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        num_ratings=0
+
+        $(document).ready(function () {
+
+            $(".get-answer").click(function () {
+                console.log("inside get-answer")
+
+                getAnswer();
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
